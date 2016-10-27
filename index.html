@@ -1,0 +1,40 @@
+<html>
+  <script type="text/javascript">
+    function buttonClick() {
+      var textarea = document.getElementsByTagName("textarea")[0];
+      textarea.value = convert(textarea.value);
+    }
+
+    function convert(garbage) {
+      var chars = "";
+      for (var i = 0; i < garbage.length; i++) {
+        var c = String.fromCodePoint(
+          parseInt(
+            garbage.charCodeAt(i).toString(16).slice(2, 4),
+            16
+          )
+        )
+
+        chars += c
+      }
+
+      return chars;
+    }
+  </script>
+  <body>
+    <h1>ATT "Chinese" Garbage Text Converter</h1>
+    <p>
+      For some reason, ATT keeps sending me weirdly encoded text messages.
+    </p>
+    <p>
+      Conversion process shamelessly stolen from <a
+        href="https://poetryproseandpoppycock.blogspot.com/2016/10/solved-mark-and-mystery-of-overly.html"
+        />this person's nice blog</a>
+    </p>
+    <textarea rows=10 cols=70></textarea>
+    <br />
+    <button name="convert" onclick="buttonClick()">
+      CONVERT!
+    </button>
+  </body>
+</html>
