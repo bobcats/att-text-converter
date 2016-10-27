@@ -2,7 +2,7 @@
   <script type="text/javascript">
     function buttonClick() {
       var textarea = document.getElementsByTagName("textarea")[0];
-      textarea.value = convert(textarea.value);
+      textarea.value = convert(textarea.value.trim());
     }
 
     function convert(garbage) {
